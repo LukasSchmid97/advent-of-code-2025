@@ -11,9 +11,6 @@ end
 lines = input_string.split("\n")
 total_joltage = 0
 target_length = 12
-# Example: 3121910778619
-# longest descending subsequence
-# replace worse number after [target_len - remainaing_numbers] with better number 
 lines.each do |line|
   nums = []
   line.chars.each_with_index do |char, i|
