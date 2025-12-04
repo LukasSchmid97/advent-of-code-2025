@@ -49,8 +49,10 @@ def removables!(grid, recurse=true)
     adjacents = neighbors(x, y, grid)
     if adjacents.count < 4
       accessibles << [x, y]
-      remove!(x, y, grid)
-      to_check += adjacents if recurse
+      if recurse
+        remove!(x, y, grid) 
+        to_check += adjacents
+      end
     end
   end
 
@@ -61,6 +63,5 @@ def remove!(x, y, grid)
   grid[y][x] = '.'
 end
 
-part_1 = removables!(input_grid, false).count
-puts part_1
-puts part_1 + removables!(input_grid).count
+puts removables!(input_grid, false).count
+puts removables!(input_grid).count
