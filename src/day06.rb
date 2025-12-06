@@ -10,8 +10,8 @@ File.open 'input/day06.txt' do |puzzle_in|
 end
 
 lines = input_string.split("\n")
-spaced_lines = lines.collect { |l| l.split(" ") }
 
+spaced_lines = lines.collect { |l| l.split(" ") }
 vertical_maths = spaced_lines.transpose.collect do |*nums, op|
   nums.collect(&:to_i).reduce(op.to_sym)
 end
