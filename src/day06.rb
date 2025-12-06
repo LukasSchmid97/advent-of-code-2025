@@ -12,17 +12,17 @@ end
 lines = input_string.split("\n")
 
 spaced_lines = lines.collect { |l| l.split(" ") }
-vertical_maths = spaced_lines.transpose.collect do |*nums, op|
+res1 = spaced_lines.transpose.sum do |*nums, op|
   nums.collect(&:to_i).reduce(op.to_sym)
 end
 
-puts vertical_maths.sum
+puts res1
 
 character_lines = lines.collect { |l| l.split("") + [" "] }
-_, _, res = character_lines.transpose.reduce([[], nil, 0]) do |(nums, op, sum), entries|
+_, _, res2 = character_lines.transpose.reduce([[], nil, 0]) do |(nums, op, sum), entries|
   next [[], nil, sum + nums.reduce(op)] if entries.all? { |s| s == " " }
   *new_digits, new_op = entries
   [[*nums, new_digits.join.to_i], op || new_op, sum]
 end
 
-puts res
+puts res2
