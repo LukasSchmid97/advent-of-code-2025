@@ -24,7 +24,7 @@ end
 lines = input_string.split("\n")
 start_pos = lines[0].index('S')
 
-beams_at = {start_pos => 1}
+beams_at = { start_pos => 1 }
 beam_splits = 0
 
 lines.each_with_index do |row, y|
@@ -41,4 +41,4 @@ lines.each_with_index do |row, y|
 end
 
 puts beam_splits
-puts beams_at.collect { |_, count| count }.sum
+puts beams_at.values.sum
